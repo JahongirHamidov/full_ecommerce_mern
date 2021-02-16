@@ -15,9 +15,6 @@ const productSchema = mongoose.Schema({
         required: true,
         ref: 'User'
     },
-    _id: {
-        type: String
-    },
     name: {
         type: String,
         required: true,
