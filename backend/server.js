@@ -15,6 +15,9 @@ const app = express()
 // Routes
 app.use('/api/products', productRoutes)
 
+// //Static file
+// app.use('/images',express.static('images'))
+
 // Middlewares
 app.use(notFound)
 app.use(errorHandler)
