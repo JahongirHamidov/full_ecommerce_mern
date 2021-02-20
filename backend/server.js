@@ -5,15 +5,21 @@ const connectDb = require('./config/db')
 const {notFound, errorHandler} = require('./middlewares/errorMiddleware')
 
 const productRoutes = require('./routes/productRoutes')
+const userRoutes = require('./routes/userRoutes')
 
 
 
 dotenv.config()
 connectDb()
+
 const app = express()
+
+app.use(express.json())
 
 // Routes
 app.use('/api/products', productRoutes)
+app.use('/api/users', userRoutes)
+
 
 // //Static file
 // app.use('/images',express.static('images'))
