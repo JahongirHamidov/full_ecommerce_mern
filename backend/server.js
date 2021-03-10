@@ -6,6 +6,7 @@ const {notFound, errorHandler} = require('./middlewares/errorMiddleware')
 
 const productRoutes = require('./routes/productRoutes')
 const userRoutes = require('./routes/userRoutes')
+const orderRoutes = require('./routes/orderRoutes')
 
 
 
@@ -19,7 +20,9 @@ app.use(express.json())
 // Routes
 app.use('/api/products', productRoutes)
 app.use('/api/users', userRoutes)
+app.use('/api/orders', orderRoutes)
 
+// app.get('/api/config/click', (req,res) => res.send() )
 
 // //Static file
 // app.use('/images',express.static('images'))
