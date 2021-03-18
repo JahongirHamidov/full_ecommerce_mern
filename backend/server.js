@@ -1,4 +1,5 @@
 const express = require('express')
+const path = require('path')
 const dotenv = require('dotenv')
 const colors = require('colors')
 const connectDb = require('./config/db')
@@ -7,6 +8,7 @@ const {notFound, errorHandler} = require('./middlewares/errorMiddleware')
 const productRoutes = require('./routes/productRoutes')
 const userRoutes = require('./routes/userRoutes')
 const orderRoutes = require('./routes/orderRoutes')
+const uploadRoutes = require('./routes/uploadRoutes')
 
 
 
@@ -21,8 +23,11 @@ app.use(express.json())
 app.use('/api/products', productRoutes)
 app.use('/api/users', userRoutes)
 app.use('/api/orders', orderRoutes)
+app.use('/api/upload', uploadRoutes)
 
 // app.get('/api/config/click', (req,res) => res.send() )
+
+app.use('/uploads', express.static(path.join(__dirname, '/uploads')))
 
 // //Static file
 // app.use('/images',express.static('images'))

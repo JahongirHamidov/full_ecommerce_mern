@@ -1,0 +1,3 @@
+[submodule "SubmoduleTestRepo"]
+    path = SubmoduleTestRepo
+    url = https://github.com/jzaccone/SubmoduleTestRepo.git 
