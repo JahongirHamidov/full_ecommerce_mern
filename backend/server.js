@@ -2,6 +2,7 @@ const express = require('express')
 const path = require('path')
 const dotenv = require('dotenv')
 const colors = require('colors')
+const morgan = require('morgan')
 const connectDb = require('./config/db')
 const {notFound, errorHandler} = require('./middlewares/errorMiddleware')
 
@@ -16,6 +17,10 @@ dotenv.config()
 connectDb()
 
 const app = express()
+
+if(process.env.NODE_ENV === 'development'){
+    app.use(morgan('dev'))
+}
 
 app.use(express.json())
 
@@ -35,6 +40,7 @@ app.use('/uploads', express.static(path.join(__dirname, '/uploads')))
 // Middlewares
 app.use(notFound)
 app.use(errorHandler)
+
 
 // Connecting PORT
 const PORT = process.env.PORT || 5000
