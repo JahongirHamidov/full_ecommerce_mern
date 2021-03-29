@@ -2,7 +2,8 @@ const express = require('express')
 const router = express.Router()
 const { 
     getProducts, 
-    getProduct, 
+    getProduct,
+    getTopProducts, 
     deleteProduct,
     updateProduct,
     createProduct,
@@ -24,5 +25,8 @@ router.route('/:id')
     .get(getProduct)
     .delete(protect, isAdmin, deleteProduct)
     .put(protect, isAdmin, updateProduct) 
+
+router.route('/top')
+    .get(getTopProducts)
 
 module.exports = router
